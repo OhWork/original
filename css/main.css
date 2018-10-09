@@ -1,0 +1,71 @@
+.collapsing {
+  position: relative;
+  height: 0;
+  overflow: hidden;
+  -webkit-transition-property: height, visibility;
+  transition-property: height, visibility;
+  -webkit-transition-duration: 0.50s;
+  transition-duration: 0.50s;
+  -webkit-transition-timing-function: ease;
+  transition-timing-function: ease;
+}
+.animat-test{
+  animation: fadeInRight .5s ease-in 1 forwards;
+  animation-fill-mode:both;
+}
+.brandedit {
+	background-color: rgba(0,0,0,0);
+	box-shadow: none;
+}
+.sidebar {
+	padding-top: 0;
+	position: sticky;
+	z-index: 0;
+}
+.bcmn {
+	background-color:#1DE9B6;
+	color:#ffffff;
+}
+.bcmn:hover {
+	background-color:#1DE9B6;
+	color:#424242;
+}
+.mucls {
+	color:#ffffff;
+}
+.mucls:hover {
+	background-color:#1DE9B6;
+	color:#424242;
+}
+.mucl:hover {
+	background-color:#1DE9B6;
+	color:#424242;
+}
+.bcnm {
+	color:#ffffff;
+}
+.alltxh {
+	color:#424242;
+	border-bottom:2px solid #F5F5F5;
+}
+.lgn {
+	color:#ffffff;
+}
+.lgn:hover {
+	color:#1DE9B6;
+}
+@keyframes fadeInRight {
+   0% {
+      opacity: 0;
+      transform: translateX(50px);
+   }
+   100% {
+      opacity: 1;
+      transform: translateX(0);
+   }
+.collapsing.width {
+  -webkit-transition-property: width, visibility;
+  transition-property: width, visibility;
+  width: 0;
+  height: auto;
+}
