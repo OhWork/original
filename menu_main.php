@@ -1,19 +1,19 @@
 <div class="col-xl-2 col-lg-2 col-md-2 col-sm-2 col-2" style="height: 100%;">
 <div class="row">
-<div class="list-group" style="height: 100%;">
+<div class="list-group w-100" style="height: 100%;">
 	<nav class="d-none d-md-block bg-dark sidebar mnpb" style="height: 100%;padding-bottom:100%;">
         <div class="sidebar-sticky">
             <ul class="nav flex-column">
 				<li class="nav-item">
-					<a class="nav-link edittext mucl" href="index.php"><span class="edittext" data-feather="home"></span>หน้าหลัก <span class="sr-only">(current)</span></a>
+					<a class="nav-link edittext mucl" href="index.php"><span class="edittext" data-feather="home"></span>home<span class="sr-only">(current)</span></a>
 				</li>
 				<li class="nav-item">
-					<a class="nav-link edittext mucl" href="https://172.16.0.1:4100/logon.shtml?redirect=http://192.168.0.1/"><span class="edittext" data-feather="chrome"></span>เข้าระบบอินเตอร์เน็ต</a>
+					<a class="nav-link edittext mucl" href="https://172.16.0.1:4100/logon.shtml?redirect=http://192.168.0.1/"><span class="edittext" data-feather="chrome"></span>Menu</a>
 				</li>
 				<li class="nav-item">
-					<a class="nav-link edittext mucl" href="http://mail.zoothailand.org"><span class="edittext" data-feather="mail"></span>อีเมล์</a>
+					<a class="nav-link edittext mucl" href="http://mail.zoothailand.org"><span class="edittext" data-feather="mail"></span>E-mail</a>
 				</li>
-				<li class="nav-item">
+				<!--<li class="nav-item">
 					<a class="nav-link edittext mucl" href="index.php?url=fm_dialog.php">
                     <span class="edittext" data-feather="database"></span>
 					ระบบฝากไฟล์
@@ -26,7 +26,7 @@
 					<a class="nav-link collapsed nav-link-1 edittext mucl" href="#cs" data-toggle="collapse" data-target="#cs"><span class="edittext" data-feather="cpu"></span>ระบบแจ้งซ่อมคอมพิวเตอร์</a>
 					<ul class="sub-menu collapse on-sub mmpd" id="cs">
 	                <!-- sub menu -->
-						<a class="nav-link edittext mucls" id="nav-1-animate-1" href="index.php?url=cs_add_problem.php">แบบฟอร์มแจ้งซ่อม</a>
+				<!--		<a class="nav-link edittext mucls" id="nav-1-animate-1" href="index.php?url=cs_add_problem.php">แบบฟอร์มแจ้งซ่อม</a>
 						<a class="nav-link edittext mucls" id="nav-1-animate-2" href="index.php?url=cs_register.php">แบบฟอร์มขอใช้ Internet</a>
 						<a class="nav-link edittext mucls" id="nav-1-animate-3" href="index.php?url=cs_add_upweb.php">แบบฟอร์มขอให้อัพไฟล์ (กรณีไม่สามารถทำไดั)</a>
 						<a class="nav-link edittext mucl mucls" id="nav-1-animate-4" href="index.php?url=cs_show_problem.php&subpage=1">รายการแจ้งซ่อม</a>
@@ -35,7 +35,7 @@
 				<li class="nav-item">
 				<a class="nav-link collapsed nav-link-2 edittext mucl" href="#trs" data-toggle="collapse" data-target="#trs"><span class="edittext" data-feather="bar-chart"></span>ระบบรายงานจำนวนผู้เข้าชม</a>
                 <!-- sub menu -->
-	                <ul class="sub-menu collapse mmpd" id="trs">
+	            <!--    <ul class="sub-menu collapse mmpd" id="trs">
 						<a class="nav-link edittext mucls" id="nav-2-animate-1" href="index.php?url=trs_showallzoo.php">รายงานจำนวนผู้เข้าชมของสวนสัตว์</a>
 						<a class="nav-link edittext mucls" id="nav-2-animate-2" href="index.php?url=trs_showallzoo_old.php">รายงานจำนวนผู้เข้าชมของสวนสัตว์แบบเก่า</a>
 						<a class="nav-link edittext mucl mucls" id="nav-2-animate-3" href="index.php?url=trs_showallvehicle.php">รายงานจำนวนยานพาหนะ</a>
@@ -44,15 +44,15 @@
 				<li class="nav-item">
 				<a class="nav-link collapsed nav-link-3 edittext mucl" href="#hrs" data-toggle="collapse" data-target="#hrs"><span class="edittext" data-feather="file"></span>ระบบขอหนังสือรับรอง</a>
                 <!-- sub menu -->
-	                <ul class="sub-menu collapse mmpd" id="hrs">
+	            <!--    <ul class="sub-menu collapse mmpd" id="hrs">
 						<a class="nav-link edittext mucls" id="nav-3-animate-1" href="index.php?url=hrs_add_certificate.php">ขอทำหนังสือรับรอง</a>
 						<a class="nav-link edittext mucl mucls" id="nav-3-animate-2" href="index.php?url=hrs_show_certificate.php">รายการหนังสือรับรอง</a>
 	                </ul>
 				</li>
-				<!-- end sub menu -->
+				<!-- end sub menu --
 				<li class="nav-item">
 				<a class="nav-link collapsed edittext mucl" href="index.php?url=qtn_show_qtnmain.php"><span class="edittext" data-feather="check-square"></span>แบบสอบถาม</a>
-				</li>
+				</li>-->
             </ul>
         </div>
     </nav>

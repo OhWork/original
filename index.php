@@ -36,24 +36,26 @@
 	<div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 showindex" >
 		<div class="row">
 			<?php include 'menu_main.php'; ?>
+			<div class="col-xl-10 col-lg-10 col-md-10 col-sm-10 col-10">
+				<?php
+					include 'database/db_tools.php';
+					//ตัวอย่าง
+					$db = new db_tools();
+					$db->openConnection();    
+					// $db->createStement("select * from zoo where zoo_enable = :sts");
+					// $db->conditions("zoo","zoo_type = :sts")->Stement();
+					// $db->findByPK("zoo","zoo_id",":sts")->Stement();
+					$db->findAll("zoo")->Stement();
+						$db->runStmSql(array());
+							while($cols = $db->moveNext_getRow()){
+							echo $cols[1],"<br>";
+							// echo $cols['zoo_name'],"<br>";
+							}    
+					echo $db->closeConnection();
+				?>
+			</div>
 		</div>
 	</div>
-			<?php
-    include 'database/db_tools.php';
-    //ตัวอย่าง
-    $db = new db_tools();
-    $db->openConnection();    
-    // $db->createStement("select * from zoo where zoo_enable = :sts");
-//      $db->conditions("zoo","zoo_type = :sts")->Stement();
-//     $db->findByPK("zoo","zoo_id",":sts")->Stement();
-    $db->findAll("zoo")->Stement();
-     $db->runStmSql(array());
-    while($cols = $db->moveNext_getRow()){
-        echo $cols[1],"<br>";
-        // echo $cols['zoo_name'],"<br>";
-}    
-    echo $db->closeConnection();
-?>
 <script>
         // passes on every "a" tag
         $("a").each(function() {
