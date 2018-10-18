@@ -5,13 +5,13 @@
         <div class="sidebar-sticky">
             <ul class="nav flex-column">
 				<li class="nav-item">
-					<a class="nav-link edittext mucl" href="index.php"><span class="edittext" data-feather="home"></span>home<span class="sr-only">(current)</span></a>
+					<a class="nav-link bcnm mucl" href="index.php"><span class="edittext" data-feather="home"></span>home<span class="sr-only">(current)</span></a>
 				</li>
 				<li class="nav-item">
-					<a class="nav-link edittext mucl" href="https://172.16.0.1:4100/logon.shtml?redirect=http://192.168.0.1/"><span class="edittext" data-feather="chrome"></span>Menu</a>
+					<a class="nav-link bcnm mucl" href="https://172.16.0.1:4100/logon.shtml?redirect=http://192.168.0.1/"><span class="edittext" data-feather="chrome"></span>Menu</a>
 				</li>
 				<li class="nav-item">
-					<a class="nav-link edittext mucl" href="http://mail.zoothailand.org"><span class="edittext" data-feather="mail"></span>E-mail</a>
+					<a class="nav-link bcnm mucl" href="http://mail.zoothailand.org"><span class="edittext" data-feather="mail"></span>E-mail</a>
 				</li>
 				<!--<li class="nav-item">
 					<a class="nav-link edittext mucl" href="index.php?url=fm_dialog.php">

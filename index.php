@@ -23,7 +23,7 @@
 			<div class="collapse navbar-collapse" id="navbarCollapse">
 				<ul class="navbar-nav mr-auto"></ul>
 				<div class="form-inline">
-					<a class="btn lgn" style="padding-top:10px;padding-bottom:10px;padding-right:0;border-right:1px solid #1DE9B6;border-radius:0px;" href="http://www.zoothailand.org/ewt_news.php?nid=246">
+					<a class="btn tm1 lgn"href="http://www.zoothailand.org/ewt_news.php?nid=246">
 					<div style="padding-right:15px;">About us</div></a>
 				</div>
 				<div class="form-inline">
