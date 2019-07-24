@@ -1,11 +1,12 @@
 <!DOCTYPE html>
+<?php 
+          require_once  "database/db_tools.php";
+?>
 <html>
     <head>
 		<title>Original</title>
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-		<link rel="stylesheet" href="css/bootstrap.min.css">
-        <link rel="stylesheet" href="css/dashboard.css" >
-        <link rel="stylesheet" href="css/jquery-ui.css">
+       <link rel="stylesheet" href="css/bootstrap.min.css">
         <link rel="stylesheet" href="css/main.css">
 		<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
 		<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -38,14 +39,16 @@
 			<?php include 'menu_main.php'; ?>
 			<div class="col-xl-10 col-lg-10 col-md-10 col-sm-10 col-10">
 				<?php
-					include 'database/db_tools.php';
 					//ตัวอย่าง
 					$db = new db_tools();
 					$db->openConnection();
-					// $db->createStement("select * from zoo where zoo_enable = :sts");
-					// $db->conditions("zoo","zoo_type = :sts")->Stement();
-					// $db->findByPK("zoo","zoo_id",":sts")->Stement();
-/*
+					 //$db->createStement("select * from zoo where zoo_enable = :sts");
+					 //$db->conditions("zoo","zoo_type = :sts")->Stement();
+					 //$db->findByPK("zoo","zoo_id",":sts")->Stement();
+                                                                                $db->createStement("INSERT INTO zoo(zoo_name) VALUES(:name) ");
+                                                                              $db->runStmSql(array(":name"=>"thai"));
+                                                                                $db->closeStm();
+
 					$db->findAll("zoo")->Stement();
 						$db->runStmSql(array());
 							while($cols = $db->moveNext_getRow()){
@@ -53,8 +56,6 @@
 							// echo $cols['zoo_name'],"<br>";
 							}
 					echo $db->closeConnection();
-*/
-include 'insert.php';
 				?>
 			</div>
 		</div>
