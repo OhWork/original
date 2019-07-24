@@ -1,6 +1,6 @@
 <?php
     class db_tools{
-        private  $server = "mysql:host=localhost;dbname=intranet;charset=utf8";
+        private  $server = "mysql:host=localhost;dbname=test_db;charset=utf8";
         private  $user = "root";
         private  $pass = "";
         private  $options  = array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC,);
@@ -17,12 +17,12 @@
                  {
                      echo "There is some problem in connection: " . $e->getMessage();
                  }
- 
+
         }
         public function closeConnection(){
             $this->con = null;
         }
-        
+
         function createStement($textsql){
             $this->sql=$textsql;
             $this->stm = $this->con->prepare($this->sql);
@@ -33,12 +33,28 @@
         function runStmSql($param=array()){
             $this->stm->execute($param);
         }
-        
+
         function moveNext_getRow($mode ='num'){
             $arrmode = array("num"=>PDO::FETCH_NUM,"assoc"=>PDO::FETCH_ASSOC);
             return $this->stm->fetch($arrmode[$mode]);
         }
-        
+        function insert($table,$data){
+	        $field = "";
+			$val = "";
+			$i = 0;
+			foreach($data as $k => $v){
+				$field.=$k;
+				$val .="'$v'";
+
+				if($i<count($data)-1){
+					$field.=',';
+					$val.=',';
+				}
+				$i++;
+			}
+			$this->sql = "INSERT INTO $table($field) VALUES($val)";
+			return $this;
+		}
         function closeStm(){
             $this->stm->closeCursor();
         }
