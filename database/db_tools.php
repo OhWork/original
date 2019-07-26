@@ -41,6 +41,44 @@
         function closeStm(){
             $this->stm->closeCursor();
         }
+        function insert($table,$data){
+	        $field = "";
+			$val = "";
+			$i = 0;
+			foreach($data as $k => $v){
+				$field.=$k;
+				$val .="'$v'";
+				print_r($field);
+
+				if($i<count($data)-1){
+					$field.=',';
+					$val.=',';
+				}
+				$i++;
+			}
+/*
+	        $this->createStement("INSERT INTO $table($field) VALUES (:val) ");
+	        $this->runStmSql(array(":val"=>"$val"));
+*/
+/*
+    		$con = $this->connect();
+			$field = "";
+			$val = "";
+			$i = 0;
+			foreach($data as $k => $v){
+				$field.=$k;
+				$val .="'$v'";
+
+				if($i<count($data)-1){
+					$field.=',';
+					$val.=',';
+				}
+				$i++;
+			}
+			$this->sql = "INSERT INTO $table($field) VALUES($val)";
+			return mysqli_query($con,$this->sql);
+*/
+		}
 		public function findAll($table){
 				$this->sql = 'SELECT * FROM '.$table;
 				return $this;

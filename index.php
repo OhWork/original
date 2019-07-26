@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<?php 
+<?php
           require_once  "database/db_tools.php";
 ?>
 <html>
@@ -45,10 +45,16 @@
 					 //$db->createStement("select * from zoo where zoo_enable = :sts");
 					 //$db->conditions("zoo","zoo_type = :sts")->Stement();
 					 //$db->findByPK("zoo","zoo_id",":sts")->Stement();
+/*
                                                                                 $db->createStement("INSERT INTO zoo(zoo_name) VALUES(:name) ");
                                                                               $db->runStmSql(array(":name"=>"thai"));
                                                                                 $db->closeStm();
-
+*/
+					$db->insert('zoo',array(
+						'zoo_name' => "ABc",
+						'zoo_type' => "xzy"
+					));
+					$db->closeStm();
 					$db->findAll("zoo")->Stement();
 						$db->runStmSql(array());
 							while($cols = $db->moveNext_getRow()){
