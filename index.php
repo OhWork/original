@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <?php
-          require_once  "database/tools.php";
+          require_once  "tools/db_tools.php";
 ?>
 <html>
     <head>
@@ -59,7 +59,7 @@
 					$db->update('zoo', $data, 'zoo_id', 60);
 */
 // 					$db->delete('zoo','zoo_id',59);
-					$db->closeStm();
+// 					$db->closeStm();
 					$db->findAll("zoo")->Stement();
 						$db->runStmSql(array());
 							while($cols = $db->moveNext_getRow()){

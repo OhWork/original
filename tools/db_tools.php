@@ -1,6 +1,6 @@
 <?php
     class db_tools{
-        private  $server = "mysql:host=localhost;dbname=intranet_intranet;charset=utf8";
+        private  $dsn = "mysql:host=localhost;dbname=intranet_intranet;charset=utf8";
         private  $user = "root";
         private  $pass = "";
         private  $options  = array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC,);
@@ -10,7 +10,7 @@
         public function openConnection(){
                try
                  {
-        	        $this->con = new PDO($this->server, $this->user,$this->pass,$this->options);
+        	        $this->con = new PDO($this->dsn, $this->user,$this->pass,$this->options);
         	        return $this->con;
                   }
                catch (PDOException $e)
@@ -35,7 +35,7 @@
         }
 
         function moveNext_getRow($mode ='num'){
-            $arrmode = array("num"=>PDO::FETCH_NUM,"assoc"=>PDO::FETCH_ASSOC);
+            $arrmode = array("num"=>PDO::FETCH_NUM,"assoc"=>PDO::FETCH_ASSOC,"array"=>PDO::FETCH_BOTH,"obj"=>PDO::FETCH_OBJ);
             return $this->stm->fetch($arrmode[$mode]);
         }
         function closeStm(){
@@ -84,7 +84,7 @@
 		}
 		public function findAll($table){
 				$this->sql = 'SELECT * FROM '.$table;
-				return $this;
+				$this->Stement();
 			}
         function conditions($table,$condition){
 			$this->sql = "SELECT * FROM $table WHERE $condition";
