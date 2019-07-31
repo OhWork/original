@@ -62,11 +62,9 @@
 		function update($table, $data, $field, $value){
 			$val = array();
 			$colon =array();
-			$rows ="";
 			$i=0;
 			foreach($data as $k => $v){
 				$val[":$v"] = $v;
-				$colon[] =":$v";
 				if($k!=$field){
 					$rows.="$k ="."'".$val[":$v"]."'";
 					if($i<count($data)-1){
@@ -83,16 +81,43 @@
 			$this->runStmSql($val);
 		}
 		public function findAll($table){
-				$this->sql = 'SELECT * FROM '.$table;
-				$this->Stement();
+			$this->createStement('SELECT * FROM '.$table);
+			$this->runStmSql(array());
 			}
         function conditions($table,$condition){
-			$this->sql = "SELECT * FROM $table WHERE $condition";
-			return $this;
+			$this->createStement("SELECT * FROM $table WHERE $condition");
+			$this->runStmSql(array());
 		}
-		function findByPK($table,$column,$value){
-			$this->sql = "SELECT * FROM $table WHERE $column = $value";
-			return $this;
+		function findByPK($table,$data){
+			$field = "";
+			$val = array();
+
+			foreach($data as $k => $v){
+				$field = $k;
+				$val[":$v"] =$v;
+				$value = $val[":$v"];
+			}
+			$this->createStement("SELECT * FROM $table WHERE $field = $value");
+			$this->runStmSql($val);
+		}
+		function findByPK2($table,$data){
+			$field = "";
+			$val = array();
+			$condition="";
+			$i = 0;
+			foreach($data as $k => $v){
+				$field = $k;
+				$val[":$v"] =$v;
+				$value = $val[":$v"];
+				$condition .= "$field = $value";
+				if($i<count($data)-1){
+					$condition .= " AND ";
+					}
+				$i++;
+
+			}
+			$this->createStement("SELECT * FROM $table WHERE $condition");
+			$this->runStmSql($val);
 		}
 }
 ?>

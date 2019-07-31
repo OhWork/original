@@ -42,30 +42,55 @@
 					//ตัวอย่าง
 					$db = new db_tools();
 					$db->openConnection();
-/*
+/* Start Function Insert
 					$db->insert('zoo',array(
 						'zoo_name' => "BBBB1",
 						'zoo_type' => "BBBB2",
 						'zoo_no' => "BBBB3",
 						'zoo_enable' => "BBBB4",
 					));
-*/
-/*
+*/// End Function Insert
+/*    Start Function Update
     				$data['zoo_name'] = "AA";
     				$data['zoo_type'] = "SS";
     				$data['zoo_no'] = "SS";
     				$data['zoo_enable'] = "SS";
 
 					$db->update('zoo', $data, 'zoo_id', 60);
-*/
-// 					$db->delete('zoo','zoo_id',59);
-// 					$db->closeStm();
-					$db->findAll("zoo")->Stement();
-						$db->runStmSql(array());
+*/// End Function Update
+// 					$db->delete('zoo','zoo_id',59); Function Delete
+/* Start Function FindAll
+					$db->findAll("zoo");
 							while($cols = $db->moveNext_getRow()){
 							echo $cols[1],"<br>";
-							// echo $cols['zoo_name'],"<br>";
 							}
+*/// End Function FindAll
+/* Strat Function condition
+					$db->conditions('zoo','zoo_id = 1');
+							while($cols = $db->moveNext_getRow()){
+							echo $cols[1],"<br>";
+							}
+*/// End Function condition
+/* Start Function FindByPK
+
+					$db->findByPK('zoo',array(
+						'zoo_id'=>25
+					));
+							while($cols = $db->moveNext_getRow()){
+							echo $cols[1],"<br>";
+							}
+*///End Function FindByPK
+/* Start Function FindByPK2
+
+					$db->findByPK2('zoo',array(
+						'zoo_id'=>1,
+						'zoo_type'=>1
+					));
+							while($cols = $db->moveNext_getRow()){
+							echo $cols[1],"<br>";
+							}
+*///END Function FindByPK2
+
 					echo $db->closeConnection();
 				?>
 			</div>
