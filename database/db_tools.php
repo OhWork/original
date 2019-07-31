@@ -42,42 +42,39 @@
             $this->stm->closeCursor();
         }
         function insert($table,$data){
-	        $field = "";
-			$val = "";
-			$i = 0;
-			foreach($data as $k => $v){
-				$field.=$k;
-				$val .="'$v'";
-				print_r($field);
+	        $field = array();
+			$val = array();
+			$colon =array();
 
-				if($i<count($data)-1){
-					$field.=',';
-					$val.=',';
-				}
-				$i++;
+			foreach($data as $k => $v){
+				$field[] = $k;
+				$val[":$v"] =$v;
+				$colon[] =":$v";
+
+				$fnlist = join($field,",");
+				$vnlist = join($colon,",");
 			}
-/*
-	        $this->createStement("INSERT INTO $table($field) VALUES (:val) ");
-	        $this->runStmSql(array(":val"=>"$val"));
-*/
-/*
+
+
+	        $this->createStement("INSERT INTO $table($fnlist) VALUES ($vnlist) ");
+	        print_r($this);
+	        $this->runStmSql($val);
+		}
+		function update($table, $data, $field, $value){
     		$con = $this->connect();
-			$field = "";
-			$val = "";
-			$i = 0;
+			$rows ="";
+			$i=0;
 			foreach($data as $k => $v){
-				$field.=$k;
-				$val .="'$v'";
-
-				if($i<count($data)-1){
-					$field.=',';
-					$val.=',';
+				if($k!=$field){
+					$rows.="$k ='$v'";
+					if($i<count($data)-1){
+						$rows.=',';
+					}
+					$i++;
 				}
-				$i++;
 			}
-			$this->sql = "INSERT INTO $table($field) VALUES($val)";
+			$this->sql = "UPDATE $table SET $rows WHERE $field = $value";
 			return mysqli_query($con,$this->sql);
-*/
 		}
 		public function findAll($table){
 				$this->sql = 'SELECT * FROM '.$table;

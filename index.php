@@ -42,17 +42,11 @@
 					//ตัวอย่าง
 					$db = new db_tools();
 					$db->openConnection();
-					 //$db->createStement("select * from zoo where zoo_enable = :sts");
-					 //$db->conditions("zoo","zoo_type = :sts")->Stement();
-					 //$db->findByPK("zoo","zoo_id",":sts")->Stement();
-/*
-                                                                                $db->createStement("INSERT INTO zoo(zoo_name) VALUES(:name) ");
-                                                                              $db->runStmSql(array(":name"=>"thai"));
-                                                                                $db->closeStm();
-*/
 					$db->insert('zoo',array(
-						'zoo_name' => "ABc",
-						'zoo_type' => "xzy"
+						'zoo_name' => "BBBB1",
+						'zoo_type' => "BBBB2",
+						'zoo_no' => "BBBB3",
+						'zoo_enable' => "BBBB4",
 					));
 					$db->closeStm();
 					$db->findAll("zoo")->Stement();
