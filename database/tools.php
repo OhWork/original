@@ -57,7 +57,6 @@
 
 
 	        $this->createStement("INSERT INTO $table($fnlist) VALUES ($vnlist) ");
-	        print_r($this);
 	        $this->runStmSql($val);
 		}
 		function update($table, $data, $field, $value){
@@ -77,7 +76,10 @@
 				$i++;
 			}
 			$this->createStement("UPDATE $table SET $rows WHERE $field = $value");
-			print_r($this);
+			$this->runStmSql($val);
+		}
+		function delete($table,$field,$value){
+			$this->createStement("DELETE FROM $table WHERE $field = $value");
 			$this->runStmSql($val);
 		}
 		public function findAll($table){

@@ -50,12 +50,15 @@
 						'zoo_enable' => "BBBB4",
 					));
 */
+/*
     				$data['zoo_name'] = "AA";
     				$data['zoo_type'] = "SS";
     				$data['zoo_no'] = "SS";
     				$data['zoo_enable'] = "SS";
 
 					$db->update('zoo', $data, 'zoo_id', 60);
+*/
+// 					$db->delete('zoo','zoo_id',59);
 					$db->closeStm();
 					$db->findAll("zoo")->Stement();
 						$db->runStmSql(array());
