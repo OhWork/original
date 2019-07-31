@@ -61,20 +61,24 @@
 	        $this->runStmSql($val);
 		}
 		function update($table, $data, $field, $value){
-    		$con = $this->connect();
+			$val = array();
+			$colon =array();
 			$rows ="";
 			$i=0;
 			foreach($data as $k => $v){
+				$val[":$v"] = $v;
+				$colon[] =":$v";
 				if($k!=$field){
-					$rows.="$k ='$v'";
+					$rows.="$k ="."'".$val[":$v"]."'";
 					if($i<count($data)-1){
 						$rows.=',';
 					}
-					$i++;
 				}
+				$i++;
 			}
-			$this->sql = "UPDATE $table SET $rows WHERE $field = $value";
-			return mysqli_query($con,$this->sql);
+			$this->createStement("UPDATE $table SET $rows WHERE $field = $value");
+			print_r($this);
+			$this->runStmSql($val);
 		}
 		public function findAll($table){
 				$this->sql = 'SELECT * FROM '.$table;

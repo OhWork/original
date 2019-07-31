@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <?php
-          require_once  "database/db_tools.php";
+          require_once  "database/tools.php";
 ?>
 <html>
     <head>
@@ -42,12 +42,20 @@
 					//ตัวอย่าง
 					$db = new db_tools();
 					$db->openConnection();
+/*
 					$db->insert('zoo',array(
 						'zoo_name' => "BBBB1",
 						'zoo_type' => "BBBB2",
 						'zoo_no' => "BBBB3",
 						'zoo_enable' => "BBBB4",
 					));
+*/
+    				$data['zoo_name'] = "AA";
+    				$data['zoo_type'] = "SS";
+    				$data['zoo_no'] = "SS";
+    				$data['zoo_enable'] = "SS";
+
+					$db->update('zoo', $data, 'zoo_id', 60);
 					$db->closeStm();
 					$db->findAll("zoo")->Stement();
 						$db->runStmSql(array());
