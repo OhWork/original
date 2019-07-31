@@ -71,25 +71,22 @@
 							echo $cols[1],"<br>";
 							}
 */// End Function condition
-/* Start Function FindByPK
+// Start Function FindByPK
+/*
 
-					$db->findByPK('zoo',array(
-						'zoo_id'=>25
+					$db->findByPK(array(
+						'zoo','subzoo'
+					),array(
+						'subzoo_name'=>"'เลขานุการ'",
+						'zoo_id'=> 'zoo_zoo_id',
 					));
+
 							while($cols = $db->moveNext_getRow()){
 							echo $cols[1],"<br>";
 							}
-*///End Function FindByPK
-/* Start Function FindByPK2
+*/
+//End Function FindByPK
 
-					$db->findByPK2('zoo',array(
-						'zoo_id'=>1,
-						'zoo_type'=>1
-					));
-							while($cols = $db->moveNext_getRow()){
-							echo $cols[1],"<br>";
-							}
-*///END Function FindByPK2
 
 					echo $db->closeConnection();
 				?>

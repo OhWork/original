@@ -91,20 +91,9 @@
 		function findByPK($table,$data){
 			$field = "";
 			$val = array();
-
-			foreach($data as $k => $v){
-				$field = $k;
-				$val[":$v"] =$v;
-				$value = $val[":$v"];
-			}
-			$this->createStement("SELECT * FROM $table WHERE $field = $value");
-			$this->runStmSql($val);
-		}
-		function findByPK2($table,$data){
-			$field = "";
-			$val = array();
 			$condition="";
 			$i = 0;
+			$tablelist = join($table,",");
 			foreach($data as $k => $v){
 				$field = $k;
 				$val[":$v"] =$v;
@@ -112,11 +101,12 @@
 				$condition .= "$field = $value";
 				if($i<count($data)-1){
 					$condition .= " AND ";
+
 					}
 				$i++;
 
 			}
-			$this->createStement("SELECT * FROM $table WHERE $condition");
+			$this->createStement("SELECT * FROM $tablelist WHERE $condition");
 			$this->runStmSql($val);
 		}
 }
