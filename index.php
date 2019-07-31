@@ -42,14 +42,21 @@
 					//ตัวอย่าง
 					$db = new db_tools();
 					$db->openConnection();
-/* Start Function Insert
+// Start Function Insert
+/*
 					$db->insert('zoo',array(
 						'zoo_name' => "BBBB1",
 						'zoo_type' => "BBBB2",
 						'zoo_no' => "BBBB3",
 						'zoo_enable' => "BBBB4",
 					));
-*/// End Function Insert
+					if($db){
+						echo "OK";
+					}else{
+						echo "No";
+					}
+*/
+// End Function Insert
 /*    Start Function Update
     				$data['zoo_name'] = "AA";
     				$data['zoo_type'] = "SS";

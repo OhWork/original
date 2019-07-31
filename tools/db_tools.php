@@ -58,6 +58,7 @@
 
 	        $this->createStement("INSERT INTO $table($fnlist) VALUES ($vnlist) ");
 	        $this->runStmSql($val);
+	        return $this;
 		}
 		function update($table, $data, $field, $value){
 			$val = array();
@@ -75,18 +76,22 @@
 			}
 			$this->createStement("UPDATE $table SET $rows WHERE $field = $value");
 			$this->runStmSql($val);
+			return $this;
 		}
 		function delete($table,$field,$value){
 			$this->createStement("DELETE FROM $table WHERE $field = $value");
 			$this->runStmSql($val);
+			return $this;
 		}
 		public function findAll($table){
 			$this->createStement('SELECT * FROM '.$table);
 			$this->runStmSql(array());
+			return $this;
 			}
         function conditions($table,$condition){
 			$this->createStement("SELECT * FROM $table WHERE $condition");
 			$this->runStmSql(array());
+			return $this;
 		}
 		function findByPK($table,$data){
 			$field = "";
@@ -108,6 +113,7 @@
 			}
 			$this->createStement("SELECT * FROM $tablelist WHERE $condition");
 			$this->runStmSql($val);
+			return $this;
 		}
 }
 ?>
