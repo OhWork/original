@@ -1,4 +1,5 @@
 <?php
+	error_reporting(0);
     class db_tools{
         private  $dsn = "mysql:host=localhost;dbname=intranet_intranet;charset=utf8";
         private  $user = "root";
@@ -45,20 +46,46 @@
 	        $field = array();
 			$val = array();
 			$colon =array();
+			$new_key = ":null";
+			$i=0;
 
 			foreach($data as $k => $v){
 				$field[] = $k;
 				$val[":$v"] =$v;
 				$colon[] =":$v";
-
+				 if($val[":$v"] == ''){
+					$keys = array_keys($val);
+					$index = array_search($keys[$i], $keys);
+				    if ($index !== false) {
+				        $keys[$index] = $new_key;
+				        $array = array_combine($keys, $val);
+				        unset($val[":$v"]);
+				        continue;
+				    }
+				}
+				$newarray = array_merge($array , $val);
 				$fnlist = join($field,",");
 				$vnlist = join($colon,",");
+				$i++;
 			}
+				if(in_array("", $newarray)){
+					$keyadd =array();
 
+					foreach($newarray as $k2 => $v2){
+						$keyadd[] = $k2;
+						$valadd = $v2;
+						$vnlist = join($keyadd,",");
+					}
+					$this->createStement("INSERT INTO $table($fnlist) VALUES ($vnlist) ");
+					$this->runStmSql($newarray);
+					return $this;
 
-	        $this->createStement("INSERT INTO $table($fnlist) VALUES ($vnlist) ");
-	        $this->runStmSql($val);
-	        return $this;
+				}else{
+					$this->createStement("INSERT INTO $table($fnlist) VALUES ($vnlist) ");
+					$this->runStmSql($val);
+					return $this;
+				}
+
 		}
 		function update($table, $data, $field, $value){
 			$val = array();

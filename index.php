@@ -43,13 +43,13 @@
 					$db = new db_tools();
 					$db->openConnection();
 // Start Function Insert
-/*
 					$db->insert('zoo',array(
 						'zoo_name' => "BBBB1",
 						'zoo_type' => "BBBB2",
-						'zoo_no' => "BBBB3",
+						'zoo_no' => "",
 						'zoo_enable' => "BBBB4",
 					));
+/*
 					if($db){
 						echo "OK";
 					}else{
