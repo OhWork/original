@@ -46,7 +46,7 @@
 					$db->insert('zoo',array(
 						'zoo_name' => "ด",
 						'zoo_type' => "ฟฟฟฟฟฟ",
-						'zoo_no' => "",
+						'zoo_no' => "1",
 						'zoo_enable' => "BBBB4",
 					));
 					if($db){
