@@ -1,5 +1,5 @@
 <?php
-	error_reporting(0);
+// 	error_reporting(0);
     class db_tools{
         private  $dsn = "mysql:host=localhost;dbname=intranet_intranet;charset=utf8";
         private  $user = "root";
@@ -46,29 +46,32 @@
 	        $field = array();
 			$val = array();
 			$colon =array();
+			$array2 =array();
 			$new_key = ":null";
 			$i=0;
+			$j =0;
 
 			foreach($data as $k => $v){
 				$field[] = $k;
 				$val[":$v"] =$v;
 				$colon[] =":$v";
-				 if($val[":$v"] == ''){
+				 if(!preg_match('/[A-Za-z0-9]/', $val[":$v"])){
 					$keys = array_keys($val);
-					$index = array_search($keys[$i], $keys);
+					$index = array_search($keys[$j], $keys);
 				    if ($index !== false) {
-				        $keys[$index] = $new_key;
+				        $keys[$index] = $new_key.$i;
 				        $array = array_combine($keys, $val);
+				        $array2+=$array;
 				        unset($val[":$v"]);
+						$i++;
 				        continue;
 				    }
 				}
-				$newarray = array_merge($array , $val);
+				$newarray = array_merge($array2 , $val);
 				$fnlist = join($field,",");
 				$vnlist = join($colon,",");
-				$i++;
 			}
-				if(in_array("", $newarray)){
+				if(in_array(preg_match('/[^A-Za-z0-9]/', $val[":$v"]), $newarray)){
 					$keyadd =array();
 
 					foreach($newarray as $k2 => $v2){
@@ -105,6 +108,44 @@
 			$this->runStmSql($val);
 			return $this;
 		}
+/*
+		function update($table, $data, $field, $value){
+			$val = array();
+			$rows ="";
+			$new_key = "null";
+			$i=0;
+			print_r($data);
+			foreach($data as $k => $v){
+				$val[$v] = $v;
+				if($k!=$field){
+					if($val["$v"] == ''){
+					$keys = array_keys($val);
+					$index = array_search($keys[$i], $keys);
+				    if ($index !== false) {
+				        $keys[$index] = $new_key;
+				        $array = array_combine($keys, $val);
+				    }
+				}
+				$newarray = array_merge($array , $val);
+				print_r($newarray);
+				echo "<hr>";
+					$rows.="$k =".$newarray["$v"];
+					print_r($rows);
+					if($i<count($data)-1){
+						$rows.=',';
+					}
+				}
+				$i++;
+			}
+
+
+			$this->createStement("UPDATE $table SET $rows WHERE $field = $value");
+			echo "<hr>";
+			print_r($this);
+			$this->runStmSql($val);
+			return $this;
+		}
+*/
 		function delete($table,$field,$value){
 			$this->createStement("DELETE FROM $table WHERE $field = $value");
 			$this->runStmSql($val);

@@ -44,27 +44,27 @@
 					$db->openConnection();
 // Start Function Insert
 					$db->insert('zoo',array(
-						'zoo_name' => "BBBB1",
-						'zoo_type' => "BBBB2",
+						'zoo_name' => "ด",
+						'zoo_type' => "ฟฟฟฟฟฟ",
 						'zoo_no' => "",
 						'zoo_enable' => "BBBB4",
 					));
-/*
 					if($db){
 						echo "OK";
 					}else{
 						echo "No";
 					}
-*/
 // End Function Insert
-/*    Start Function Update
+//   Start Function Update
+/*
     				$data['zoo_name'] = "AA";
     				$data['zoo_type'] = "SS";
-    				$data['zoo_no'] = "SS";
-    				$data['zoo_enable'] = "SS";
+    				$data['zoo_no'] = "";
+    				$data['zoo_enable'] = "เอดอก";
 
-					$db->update('zoo', $data, 'zoo_id', 60);
-*/// End Function Update
+					$db->update('zoo', $data, 'zoo_id', 84);
+*/
+// End Function Update
 // 					$db->delete('zoo','zoo_id',59); Function Delete
 /* Start Function FindAll
 					$db->findAll("zoo");
@@ -79,16 +79,16 @@
 							}
 */// End Function condition
 // Start Function FindByPK
-/*
 
-					$db->findByPK(array(
+/*
+					$rs = $db->findByPK(array(
 						'zoo','subzoo'
 					),array(
 						'subzoo_name'=>"'เลขานุการ'",
 						'zoo_id'=> 'zoo_zoo_id',
 					));
 
-							while($cols = $db->moveNext_getRow()){
+							while($cols = $rs->moveNext_getRow()){
 							echo $cols[1],"<br>";
 							}
 */
