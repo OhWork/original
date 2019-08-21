@@ -44,10 +44,12 @@
 					$db->openConnection();
 // Start Function Insert
 					$db->insert('zoo',array(
-						'zoo_name' => "ด",
-						'zoo_type' => "ฟฟฟฟฟฟ",
-						'zoo_no' => "1",
-						'zoo_enable' => "BBBB4",
+						'zoo_name' => "",
+						'zoo_type' => "ดด",
+						'zoo_no' => "หหหหห",
+						'zoo_enable' => "อออออ",
+						'zoo_per_hrs' =>"VVVV",
+						'zoo_pic' => ""
 					));
 					if($db){
 						echo "OK";

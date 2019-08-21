@@ -55,7 +55,11 @@
 				$field[] = $k;
 				$val[":$v"] =$v;
 				$colon[] =":$v";
-				 if(!preg_match('/[A-Za-z0-9]/', $val[":$v"])){
+				if($val[":$v"] == ""){
+					$val[":"] = " ";
+
+				}
+				 if($val[":$v"] != ""){
 					$keys = array_keys($val);
 					$index = array_search($keys[$j], $keys);
 				    if ($index !== false) {
@@ -63,13 +67,11 @@
 				        $array = array_combine($keys, $val);
 				        $array2+=$array;
 				        unset($val[":$v"]);
-						$i++;
-				        continue;
+				        $i++;
 				    }
 				}
 				$newarray = array_merge($array2 , $val);
 				$fnlist = join($field,",");
-				$vnlist = join($colon,",");
 			}
 				if(in_array(preg_match('/[^A-Za-z0-9]/', $val[":$v"]), $newarray)){
 					$keyadd =array();
@@ -80,11 +82,12 @@
 						$vnlist = join($keyadd,",");
 					}
 					$this->createStement("INSERT INTO $table($fnlist) VALUES ($vnlist) ");
-					print_r($this);
 					$this->runStmSql($newarray);
 					return $this;
 
 				}else{
+
+				$vnlist = join($colon,",");
 					$this->createStement("INSERT INTO $table($fnlist) VALUES ($vnlist) ");
 					$this->runStmSql($val);
 					return $this;
